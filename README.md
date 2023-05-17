@@ -6,6 +6,9 @@ Parallax effect: Lux.js is a simple and intuitive way to implement the parallax 
 
 Independence: Lux.js does not depend on other libraries or frameworks such as jQuery. Therefore, high-quality parallax effects can be implemented with minimal project dependencies.
 
+Demo web site is below
+https://yuta.kmusiclife.com/demos/lux.js/
+
 # Usage
 
 create lux class and .lux -> .lux-bg with background-url parameter for image.
