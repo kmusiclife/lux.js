@@ -9,8 +9,14 @@ Independence: Lux.js does not depend on other libraries or frameworks such as jQ
 # Usage
 
 create lux class and .lux -> .lux-bg with background-url parameter for image.
+
+body lux
+```html
+<div class="lux-body-bg" style="background-image: url('https://source.unsplash.com/random/1280x800/?beach');"></div>
+```
+section lux(date-direction: top,bottom,right,left)
 ```html
 <div class="lux" data-direction="right">
-    <div class="lux-bg" style="background-url: ('https://source.unsplash.com/random/1280x800/?nature');"></div>
+    <div class="lux-bg" style="background-image: url('https://source.unsplash.com/random/1280x800/?nature');"></div>
 </div>
 ```
