@@ -1,11 +1,15 @@
 /*!
-  * lux.js v0.0.1 (https://yuta.kmusiclife.com/)
+  * lux.js v0.0.2 (https://yuta.kmusiclife.com/)
   * Copyright 2023 Yuta Konishi
   * Licensed under Apache2.0
   */
 const lux_body_bg = document.querySelector('.lux-body-bg');
 let luxs = [];
+let lux_fades = [];
 
+document.querySelectorAll('.lux-fade').forEach((lux_fade)=>{
+    lux_fades.push(lux_fade);
+});
 if(lux_body_bg){
     lux_body_bg.style.top = 0;
     lux_body_bg.style.left = '-25vw';
@@ -16,7 +20,6 @@ if(lux_body_bg){
     lux_body_bg.style.backgroundPosition = 'center';
     lux_body_bg.style.position = 'fixed';
 }
-
 document.querySelectorAll('.lux').forEach((lux) => {
     
     var lux_bg = lux.querySelector('.lux-bg');
@@ -53,8 +56,24 @@ document.querySelectorAll('.lux').forEach((lux) => {
 window.addEventListener('scroll', function(_e){
 
     let _y = window.pageYOffset;
+    const visible_rate = 0.50;
+    
+    lux_fades.forEach((lux_object) => {
+        let rect = lux_object.getBoundingClientRect();
+        if( (window.innerHeight-rect.top > 0) && (((window.innerHeight* (1.00-visible_rate) )-rect.bottom) < 0) ){ 
+            let lux_object_width = lux_object.clientWidth;
+            let all_height = (window.innerHeight-rect.top) - (window.innerHeight-rect.bottom) + window.innerHeight*visible_rate;
+            let lux_object_y = window.innerHeight-rect.top;
+            let lux_object_a = lux_object_y/all_height;
+
+            lux_object.style.opacity = lux_object_a;
+        } else {
+            lux_object.style.opacity = 1.00;
+        }
+    });
 
     luxs.forEach((lux)=>{
+       
         var lux_bg = lux.querySelector('.lux-bg');
         var direction = lux.getAttribute('data-direction');
         
