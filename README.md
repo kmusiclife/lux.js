@@ -16,9 +16,12 @@ body lux
 ```html
 <div class="lux-body-bg" style="background-image: url('https://source.unsplash.com/random/1280x800/?beach');"></div>
 ```
-section lux(date-direction: top,bottom,right,left)
+section lux(date-direction: top,bottom,right,left) & lux.js have got fade function as lux -> .lux-fade
 ```html
 <div class="lux" data-direction="right">
     <div class="lux-bg" style="background-image: url('https://source.unsplash.com/random/1280x800/?nature');"></div>
+    <div class="lux-fade d-flex flex-row text-light h-100">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
 </div>
 ```
