@@ -1,5 +1,5 @@
 /*!
-  * lux.js v0.0.2 (https://yuta.kmusiclife.com/)
+  * lux.js v0.0.3 (https://yuta.kmusiclife.com/)
   * Copyright 2023 Yuta Konishi
   * Licensed under Apache2.0
   */
@@ -23,12 +23,13 @@ if(lux_body_bg){
 document.querySelectorAll('.lux').forEach((lux) => {
     
     var lux_bg = lux.querySelector('.lux-bg');
+    var height = lux.getAttribute('data-height');
     var direction = lux.getAttribute('data-direction');
 
     lux.style.position = 'relative';
     lux.style.overflowX = 'hidden';
     lux.style.overflowY = 'hidden';
-    lux.style.height = '100vh';
+    lux.style.height = height || '100vh';
     lux.style.width = '100vw';
 
     lux_bg.style.position = 'absolute';
@@ -56,16 +57,14 @@ document.querySelectorAll('.lux').forEach((lux) => {
 window.addEventListener('scroll', function(_e){
 
     let _y = window.pageYOffset;
-    const visible_rate = 0.50;
-    
+    const visible_rate = 0.20;
+
     lux_fades.forEach((lux_object) => {
         let rect = lux_object.getBoundingClientRect();
         if( (window.innerHeight-rect.top > 0) && (((window.innerHeight* (1.00-visible_rate) )-rect.bottom) < 0) ){ 
-            let lux_object_width = lux_object.clientWidth;
             let all_height = (window.innerHeight-rect.top) - (window.innerHeight-rect.bottom) + window.innerHeight*visible_rate;
             let lux_object_y = window.innerHeight-rect.top;
             let lux_object_a = lux_object_y/all_height;
-
             lux_object.style.opacity = lux_object_a;
         } else {
             lux_object.style.opacity = 1.00;
